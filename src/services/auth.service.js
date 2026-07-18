@@ -1,5 +1,9 @@
+const jwt = require("jsonwebtoken");
+
 const User = require("../models/user.model");
 const RefreshToken = require("../models/refreshToken.model");
+
+const ApiError = require("../utils/ApiError");
 
 const comparePassword = require("../utils/comparePassword");
 const hashPassword = require("../utils/hashPassword");
@@ -21,7 +25,10 @@ async function registerUser(userData) {
     });
 
     if (existingUser) {
-        throw new Error("User already exists");
+        throw new ApiError(
+            409,
+            "User with this email or phone already exists"
+        );
     }
 
     // Hash password
@@ -68,7 +75,10 @@ async function loginUser(credentials) {
     const user = await User.findOne({ email }).select("+password");
 
     if (!user) {
-        throw new Error("Invalid credentials");
+        throw new ApiError(
+            401,
+            "Invalid email or password"
+        );
     }
 
     const isMatch = await comparePassword(
@@ -77,7 +87,10 @@ async function loginUser(credentials) {
     );
 
     if (!isMatch) {
-        throw new Error("Invalid credentials");
+        throw new ApiError(
+            401,
+            "Invalid email or password"
+        );
     }
 
     const accessToken = generateAccessToken(user);
@@ -114,26 +127,43 @@ async function logoutUser(userId) {
 
 async function refreshAccessToken(token) {
 
-    const storedToken =
-        await RefreshToken.findOne({
-            token,
-            isRevoked: false,
-        });
-
-    if (!storedToken) {
-        throw new Error("Invalid refresh token");
+    if (!token) {
+        throw new ApiError(
+            401,
+            "Refresh token is required"
+        );
     }
 
-    const payload = jwt.verify(
+    const storedToken = await RefreshToken.findOne({
         token,
-        process.env.JWT_REFRESH_SECRET
-    );
+        isRevoked: false,
+    });
 
-    const accessToken =
-        generateAccessToken({
-            _id: payload.id,
-            role: payload.role,
-        });
+    if (!storedToken) {
+        throw new ApiError(
+            401,
+            "Invalid refresh token"
+        );
+    }
+
+    let payload;
+
+    try {
+        payload = jwt.verify(
+            token,
+            process.env.JWT_REFRESH_SECRET
+        );
+    } catch (error) {
+        throw new ApiError(
+            401,
+            "Refresh token has expired or is invalid"
+        );
+    }
+
+    const accessToken = generateAccessToken({
+        _id: payload.id,
+        role: payload.role,
+    });
 
     return accessToken;
 }
@@ -143,7 +173,10 @@ async function getCurrentUser(userId) {
     const user = await User.findById(userId);
 
     if (!user) {
-        throw new Error("User not found");
+        throw new ApiError(
+            404,
+            "User not found"
+        );
     }
 
     return {

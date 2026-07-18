@@ -1,4 +1,6 @@
 const authService = require("../services/auth.service");
+const asyncHandler = require("../utils/asyncHandler");
+const ApiResponse = require("../utils/ApiResponse");
 
 const cookieOptions = {
     httpOnly: true,
@@ -6,87 +8,78 @@ const cookieOptions = {
     sameSite: "strict",
 };
 
-async function registerUser(req, res, next) {
-    try {
-        const result = await authService.registerUser(req.body);
+const registerUser = asyncHandler(async (req, res) => {
+    const result = await authService.registerUser(req.body);
 
-        res.cookie("accessToken", result.accessToken, cookieOptions);
-        res.cookie("refreshToken", result.refreshToken, cookieOptions);
+    res.cookie("accessToken", result.accessToken, cookieOptions);
+    res.cookie("refreshToken", result.refreshToken, cookieOptions);
 
-        return res.status(201).json({
-            success: true,
-            message: "User registered successfully",
-            user: result.user,
-        });
-    } catch (error) {
-        next(error);
-    }
-}
+    return res.status(201).json(
+        new ApiResponse(
+            201,
+            { user: result.user },
+            "User registered successfully"
+        )
+    );
+});
 
-async function loginUser(req, res, next) {
-    try {
-        const result = await authService.loginUser(req.body);
+const loginUser = asyncHandler(async (req, res) => {
+    const result = await authService.loginUser(req.body);
 
-        res.cookie("accessToken", result.accessToken, cookieOptions);
-        res.cookie("refreshToken", result.refreshToken, cookieOptions);
+    res.cookie("accessToken", result.accessToken, cookieOptions);
+    res.cookie("refreshToken", result.refreshToken, cookieOptions);
 
-        return res.status(200).json({
-            success: true,
-            message: "Login successful",
-            user: result.user,
-        });
-    } catch (error) {
-        next(error);
-    }
-}
+    return res.status(200).json(
+        new ApiResponse(
+            200,
+            { user: result.user },
+            "Login successful"
+        )
+    );
+});
 
-async function logoutUser(req, res, next) {
-    try {
-        await authService.logoutUser(req.user.id);
+const logoutUser = asyncHandler(async (req, res) => {
+    await authService.logoutUser(req.user.id);
 
-        res.clearCookie("accessToken");
-        res.clearCookie("refreshToken");
+    res.clearCookie("accessToken");
+    res.clearCookie("refreshToken");
 
-        return res.status(200).json({
-            success: true,
-            message: "Logout successful",
-        });
-    } catch (error) {
-        next(error);
-    }
-}
+    return res.status(200).json(
+        new ApiResponse(
+            200,
+            null,
+            "Logout successful"
+        )
+    );
+});
 
-async function refreshTokenAccess(req, res, next) {
-    try {
-        const refreshToken = req.cookies.refreshToken;
+const refreshTokenAccess = asyncHandler(async (req, res) => {
+    const refreshToken = req.cookies.refreshToken;
 
-        const accessToken =
-            await authService.refreshAccessToken(refreshToken);
+    const accessToken = await authService.refreshAccessToken(refreshToken);
 
-        res.cookie("accessToken", accessToken, cookieOptions);
+    res.cookie("accessToken", accessToken, cookieOptions);
 
-        return res.status(200).json({
-            success: true,
-            message: "Access token refreshed",
-        });
-    } catch (error) {
-        next(error);
-    }
-}
+    return res.status(200).json(
+        new ApiResponse(
+            200,
+            null,
+            "Access token refreshed successfully"
+        )
+    );
+});
 
-async function getCurrentUser(req, res, next) {
-    try {
-        const user =
-            await authService.getCurrentUser(req.user.id);
+const getCurrentUser = asyncHandler(async (req, res) => {
+    const user = await authService.getCurrentUser(req.user.id);
 
-        return res.status(200).json({
-            success: true,
+    return res.status(200).json(
+        new ApiResponse(
+            200,
             user,
-        });
-    } catch (error) {
-        next(error);
-    }
-}
+            "Current user fetched successfully"
+        )
+    );
+});
 
 module.exports = {
     registerUser,
