@@ -69,8 +69,6 @@ const cartSchema = new mongoose.Schema(
   }
 );
 
-cartSchema.index({ user: 1 });
-
 const Cart = mongoose.model("Cart", cartSchema);
 
 module.exports = Cart;

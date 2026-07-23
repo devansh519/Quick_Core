@@ -91,7 +91,6 @@ const warehouseSchema = new mongoose.Schema(
 warehouseSchema.index({ location: "2dsphere" });
 
 // Other Indexes
-warehouseSchema.index({ code: 1 });
 warehouseSchema.index({ status: 1 });
 
 const Warehouse = mongoose.model("Warehouse", warehouseSchema);
