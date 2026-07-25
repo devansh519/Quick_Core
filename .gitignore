@@ -23,6 +23,7 @@ pids/
 # Coverage and test output
 coverage/
 .nyc_output/
+jest-stare/
 
 # Build output
 dist/
@@ -32,6 +33,7 @@ build/
 .npm/
 .cache/
 .parcel-cache/
+.eslintcache
 
 # OS files
 .DS_Store
@@ -45,3 +47,13 @@ Thumbs.db
 
 # Optional local config
 *.local
+
+# Docker
+.dockerignore
+
+# Temporary files
+tmp/
+temp/
+
+# Misc
+*.tgz
