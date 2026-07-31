@@ -3,25 +3,34 @@ const app = require("../../src/app");
 
 describe("GET /api/v1/auth/me", () => {
     let cookies;
+    let email;
+    let phone;
 
     beforeEach(async () => {
+        email = `user${Date.now()}@example.com`;
+        phone = `9${Math.floor(100000000 + Math.random() * 900000000)}`;
+
         await request(app)
             .post("/api/v1/auth/signup")
             .send({
                 name: "John Doe",
-                email: "john@example.com",
-                phone: "9876543210",
+                email,
+                phone,
                 password: "Password@123",
             });
 
         const loginRes = await request(app)
             .post("/api/v1/auth/login")
             .send({
-                email: "john@example.com",
+                email,
                 password: "Password@123",
             });
 
+        expect(loginRes.statusCode).toBe(200);
+
         cookies = loginRes.headers["set-cookie"];
+
+        expect(cookies).toBeDefined();
     });
 
     it("should return current authenticated user", async () => {
@@ -34,15 +43,15 @@ describe("GET /api/v1/auth/me", () => {
 
         expect(res.body.data).toEqual(
             expect.objectContaining({
-                email: "john@example.com",
+                email,
                 name: "John Doe",
-                phone: "9876543210",
+                phone,
                 role: "customer",
             })
         );
     });
 
-    it("should fail without access token", async () => {
+    it("should fail without authentication", async () => {
         const res = await request(app)
             .get("/api/v1/auth/me");
 
@@ -61,7 +70,7 @@ describe("GET /api/v1/auth/me", () => {
         expect(res.body.success).toBe(false);
     });
 
-    it("should fail when access token is malformed", async () => {
+    it("should fail with a malformed access token", async () => {
         const res = await request(app)
             .get("/api/v1/auth/me")
             .set("Cookie", [

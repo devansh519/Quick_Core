@@ -1,6 +1,18 @@
 const Brand = require("../models/brand.model");
 const ApiError = require("../utils/ApiError");
 
+// Lowercase, strict, trimmed slug derived from the brand name
+function generateSlug(name) {
+    const slug = name
+        .toLowerCase()
+        .trim()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-+|-+$/g, "");
+
+    // Fall back to a generic slug for symbol-only names
+    return slug || "brand";
+}
+
 async function createBrand(brandData) {
     const existingBrand = await Brand.findOne({
         name: brandData.name,
@@ -10,7 +22,9 @@ async function createBrand(brandData) {
         throw new ApiError(409, "Brand already exists");
     }
 
-    return await Brand.create(brandData);
+    const slug = generateSlug(brandData.name);
+
+    return await Brand.create({ ...brandData, slug });
 }
 
 async function getAllBrands(query) {
@@ -64,9 +78,15 @@ async function getBrandById(id) {
 }
 
 async function updateBrand(id, updateData) {
+    const data = { ...updateData };
+
+    if (data.name) {
+        data.slug = generateSlug(data.name);
+    }
+
     const brand = await Brand.findByIdAndUpdate(
         id,
-        updateData,
+        data,
         {
             new: true,
             runValidators: true,
