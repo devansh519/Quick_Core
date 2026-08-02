@@ -7,11 +7,6 @@ const createProductSchema = Joi.object({
         .max(150)
         .required(),
 
-    slug: Joi.string()
-        .trim()
-        .lowercase()
-        .required(),
-
     description: Joi.string()
         .trim()
         .max(1000)
@@ -74,10 +69,6 @@ const updateProductSchema = Joi.object({
         .trim()
         .min(2)
         .max(150),
-
-    slug: Joi.string()
-        .trim()
-        .lowercase(),
 
     description: Joi.string()
         .trim()

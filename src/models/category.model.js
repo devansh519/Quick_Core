@@ -11,14 +11,6 @@ const categorySchema = new mongoose.Schema(
       maxlength: 50,
     },
 
-    slug: {
-      type: String,
-      required: true,
-      unique: true,
-      lowercase: true,
-      trim: true,
-    },
-
     description: {
       type: String,
       trim: true,

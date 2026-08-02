@@ -6,16 +6,13 @@ const ApiError = require("../utils/ApiError");
 async function createProduct(productData) {
 
     const existingProduct = await Product.findOne({
-        $or: [
-            { slug: productData.slug },
-            { sku: productData.sku },
-        ],
+        sku: productData.sku,
     });
 
     if (existingProduct) {
         throw new ApiError(
             409,
-            "Product with same slug or SKU already exists"
+            "Product with same SKU already exists"
         );
     }
 
@@ -106,8 +103,8 @@ async function getAllProducts(query) {
 async function getProductById(id) {
 
     const product = await Product.findById(id)
-        .populate("category", "name slug")
-        .populate("brand", "name slug");
+        .populate("category", "name")
+        .populate("brand", "name");
 
     if (!product) {
         throw new ApiError(
