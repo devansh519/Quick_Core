@@ -1,269 +1,438 @@
-# QuickCore v1
+# 🚀 QuickCore v1
 
-QuickCore v1 is a Node.js backend API for a commerce-style platform built with Express and Mongoose. It includes authentication, user management, catalog management, warehouse and inventory tracking, shopping carts, order processing, payment records, deliveries, and notifications.
+> **An AI-Native Quick Commerce Operations Platform** inspired by modern commerce systems like Blinkit, Zepto, Instamart, and Amazon Fresh.
 
-## Overview
+QuickCore is a production-oriented backend that simulates how large-scale quick commerce platforms manage authentication, products, inventory, warehouses, carts, orders, payments, deliveries, and notifications.
 
-The project follows a layered backend architecture:
+Unlike a traditional CRUD application, QuickCore is designed as a scalable backend foundation that will evolve into an AI-driven operations platform powered by microservices, intelligent automation, and machine learning.
 
-- Routes define HTTP endpoints
-- Controllers handle request/response adaptation
-- Services contain business logic
-- Models define Mongoose schemas and data relationships
-- Middlewares enforce authentication, authorization, validation, and error handling
+---
 
-## Tech Stack
+# 📌 Project Status
 
-- Node.js
-- Express
-- MongoDB
-- Mongoose
-- Joi
-- JSON Web Tokens
-- bcrypt
-- cookie-parser
-- validator
-- dotenv
+**Current Version**
 
-## Project Structure
+> ✅ **v1.0 (MVP)**
 
-```text
-.
-├── server.js
-├── package.json
-├── package-lock.json
-├── .env
-└── src
-    ├── app.js
-    ├── controllers
-    │   ├── auth.controller.js
-    │   ├── brand.controller.js
-    │   ├── cart.controller.js
-    │   ├── category.controller.js
-    │   ├── delivery.controller.js
-    │   ├── driver.controller.js
-    │   ├── inventory.controller.js
-    │   ├── notification.controller.js
-    │   ├── payment.controller.js
-    │   ├── product.controller.js
-    │   └── warehouse.controller.js
-    ├── db
-    │   └── db.js
-    ├── middlewares
-    │   ├── authenticate.middleware.js
-    │   ├── authorize.middleware.js
-    │   ├── error.middleware.js
-    │   └── validate.middleware.js
-    ├── models
-    │   ├── address.model.js
-    │   ├── brand.model.js
-    │   ├── cart.model.js
-    │   ├── category.model.js
-    │   ├── coupon.model.js
-    │   ├── delivery.model.js
-    │   ├── driver.model.js
-    │   ├── inventory.model.js
-    │   ├── notification.model.js
-    │   ├── order.model.js
-    │   ├── orderItem.model.js
-    │   ├── payment.model.js
-    │   ├── product.model.js
-    │   ├── refreshToken.model.js
-    │   ├── review.model.js
-    │   ├── user.model.js
-    │   └── warehouse.model.js
-    ├── routes
-    │   ├── auth.routes.js
-    │   ├── brand.routes.js
-    │   ├── cart.routes.js
-    │   ├── category.routes.js
-    │   ├── delivery.routes.js
-    │   ├── driver.routes.js
-    │   ├── inventory.routes.js
-    │   ├── notification.routes.js
-    │   ├── order.routes.js
-    │   ├── payment.routes.js
-    │   ├── product.routes.js
-    │   └── warehouse.routes.js
-    ├── services
-    │   ├── auth.service.js
-    │   ├── brand.service.js
-    │   ├── cart.service.js
-    │   ├── category.service.js
-    │   ├── delivery.service.js
-    │   ├── driver.service.js
-    │   ├── inventory.service.js
-    │   ├── notification.service.js
-    │   ├── order.service.js
-    │   ├── order.controller.js
-    │   ├── payment.service.js
-    │   ├── product.service.js
-    │   └── warehouse.service.js
-    ├── utils
-    │   ├── ApiError.js
-    │   ├── ApiResponse.js
-    │   ├── asyncHandler.js
-    │   ├── comparePassword.js
-    │   ├── generateAccessToken.js
-    │   ├── generateRefreshToken.js
-    │   └── hashPassword.js
-    └── validations
-        ├── auth.validation.js
-        ├── brand.validation.js
-        ├── cart.validation.js
-        ├── category.validation.js
-        ├── delivery.validation.js
-        ├── driver.validation.js
-        ├── inventory.validation.js
-        ├── order.validation.js
-        ├── payment.validation.js
-        ├── product.validation.js
-        └── warehouse.validation.js
+Current focus:
+
+- Production Backend
+- Dockerized Infrastructure
+- Redis Caching
+- API Documentation
+- Integration Testing
+
+Upcoming versions will introduce:
+
+- AI Microservices
+- Event-Driven Architecture
+- Real-Time Tracking
+- ML-powered Decision Systems
+- Customer & Admin Frontend
+
+---
+
+# 🌐 Live Demo
+
+## API
+
+```
+Coming Soon
 ```
 
-## Prerequisites
+## Swagger Documentation
 
-- Node.js 18+ recommended
-- MongoDB instance
-- A valid `.env` file
+```
+Coming Soon
+```
 
-## Installation
+## Health Check
+
+```
+Coming Soon
+```
+
+---
+
+# ✨ Key Features
+
+## 🔐 Authentication & Security
+
+- JWT Authentication
+- Refresh Token Authentication
+- Secure HttpOnly Cookies
+- Role-Based Access Control (RBAC)
+- Joi Request Validation
+
+---
+
+## 🛒 Commerce Operations
+
+- Product Management
+- Category Management
+- Brand Management
+- Shopping Cart
+- Order Processing
+- Payment Management
+
+---
+
+## 🏬 Warehouse Operations
+
+- Warehouse Management
+- Inventory Tracking
+- Driver Management
+- Delivery Management
+- Notification System
+
+---
+
+## ⚡ Performance
+
+- Redis Integration
+- Redis Response Caching
+- Cache Invalidation Strategy
+- Optimized Database Queries
+
+---
+
+## 📦 Infrastructure
+
+- Docker
+- Docker Compose
+- MongoDB
+- Redis
+- Swagger / OpenAPI
+- Health Check Endpoint
+
+---
+
+## 🧪 Testing
+
+Production-grade Integration Tests
+
+✔ Authentication
+
+✔ Categories
+
+✔ Brands
+
+✔ Products
+
+✔ Warehouses
+
+✔ Inventory
+
+✔ Cart
+
+✔ Orders
+
+✔ Payments
+
+✔ Drivers
+
+✔ Deliveries
+
+✔ Notifications
+
+**292+ Passing Integration Tests**
+
+---
+
+# 🏗 Architecture
+
+```
+                Client
+                   │
+                   ▼
+             Express REST API
+                   │
+      ┌────────────┴────────────┐
+      ▼                         ▼
+ Authentication           Middlewares
+      │
+      ▼
+ Controllers
+      │
+      ▼
+ Services
+      │
+ ┌────┴─────────┐
+ ▼              ▼
+Redis Cache   MongoDB
+```
+
+Future Architecture
+
+```
+                React Frontend
+                       │
+                       ▼
+                 Express Backend
+                       │
+                Redis Cache Layer
+                       │
+         ┌─────────────┴─────────────┐
+         ▼                           ▼
+ MongoDB                    FastAPI AI Services
+                                      │
+                                      ▼
+                          ML Models & AI Agents
+```
+
+---
+
+# 🛠 Tech Stack
+
+### Backend
+
+- Node.js
+- Express.js
+
+### Database
+
+- MongoDB
+- Mongoose
+
+### Cache
+
+- Redis
+
+### Authentication
+
+- JWT
+- Refresh Tokens
+- HttpOnly Cookies
+
+### Validation
+
+- Joi
+
+### Documentation
+
+- Swagger (OpenAPI 3)
+
+### Testing
+
+- Jest
+- Supertest
+- MongoDB Memory Server
+
+### DevOps
+
+- Docker
+- Docker Compose
+
+---
+
+# 📂 Project Structure
+
+```
+src
+├── config
+├── controllers
+├── db
+├── docs
+├── middlewares
+├── models
+├── routes
+├── services
+├── utils
+└── validations
+```
+
+The project follows a layered architecture:
+
+```
+Routes
+    ↓
+Controllers
+    ↓
+Services
+    ↓
+Database / Cache
+```
+
+This separation keeps business logic independent from HTTP request handling.
+
+---
+
+# 📚 API Documentation
+
+Once the application is running, interactive API documentation is available at:
+
+```
+/api-docs
+```
+
+The documentation includes:
+
+- Request Examples
+- Response Examples
+- Authentication
+- Validation Rules
+- Error Responses
+- Interactive API Testing
+
+---
+
+# ⚙ Installation
+
+Clone the repository
+
+```bash
+git clone https://github.com/your-username/QuickCore.git
+
+cd QuickCore
+```
+
+Install dependencies
 
 ```bash
 npm install
 ```
 
-## Environment Variables
+---
 
-Create a `.env` file in the project root:
+# 🔧 Environment Variables
+
+Create a `.env` file.
 
 ```env
-MONGO_URI=your_mongodb_connection_string
-JWT_ACCESS_SECRET=your_access_token_secret
-JWT_ACCESS_EXPIRY=15m
-JWT_REFRESH_SECRET=your_refresh_token_secret
-JWT_REFRESH_EXPIRY=30d
+PORT=3000
+
 NODE_ENV=development
+
+MONGO_URI=your_mongodb_uri
+
+REDIS_URL=your_redis_url
+
+JWT_ACCESS_SECRET=your_secret
+
+JWT_REFRESH_SECRET=your_secret
+
+JWT_ACCESS_EXPIRY=15m
+
+JWT_REFRESH_EXPIRY=30d
 ```
 
-## Running the Server
+---
 
-Start the development server:
+# ▶ Running the Project
+
+Development
 
 ```bash
 npm run dev
 ```
 
-Or run it directly:
+Production
 
 ```bash
 npm start
 ```
 
-The server listens on:
+Docker
 
-```text
-http://localhost:3000
+```bash
+docker compose up --build
 ```
 
-## API Overview
+---
 
-### Authentication
+# 🧪 Running Tests
 
-- `POST /api/v1/auth/signup`
-- `POST /api/v1/auth/login`
-- `POST /api/v1/auth/refresh-token`
-- `POST /api/v1/auth/logout`
-- `GET /api/v1/auth/me`
+Run all integration tests
 
-### Catalog
+```bash
+npm test
+```
 
-- `GET /api/v1/categories`
-- `GET /api/v1/categories/:id`
-- `POST /api/v1/categories`
-- `PATCH /api/v1/categories/:id`
-- `DELETE /api/v1/categories/:id`
+Current Status
 
-- `GET /api/v1/brands`
-- `GET /api/v1/brands/:id`
-- `POST /api/v1/brands`
-- `PATCH /api/v1/brands/:id`
-- `DELETE /api/v1/brands/:id`
+```
+292+ Tests Passing
+```
 
-- `GET /api/v1/products`
-- `GET /api/v1/products/:id`
-- `POST /api/v1/products`
-- `PATCH /api/v1/products/:id`
-- `DELETE /api/v1/products/:id`
+---
 
-### Inventory and Warehouses
+# 🚀 Roadmap
 
-- `GET /api/v1/warehouses`
-- `GET /api/v1/warehouses/:id`
-- `POST /api/v1/warehouses`
-- `PATCH /api/v1/warehouses/:id`
-- `DELETE /api/v1/warehouses/:id`
+## ✅ Version 1 (Current)
 
-- `GET /api/v1/inventories`
-- `GET /api/v1/inventories/:id`
-- `POST /api/v1/inventories`
-- `PATCH /api/v1/inventories/:id`
-- `DELETE /api/v1/inventories/:id`
+- Express Backend
+- JWT Authentication
+- RBAC
+- CRUD APIs
+- MongoDB
+- Redis
+- Docker
+- Swagger
+- Integration Testing
 
-### Cart and Orders
+---
 
-- `GET /api/v1/cart`
-- `POST /api/v1/cart/add-item`
-- `PATCH /api/v1/cart/update-item/:productId`
-- `DELETE /api/v1/cart/remove-item/:productId`
-- `DELETE /api/v1/cart/clear`
+## 🚧 Version 1.1
 
-- `POST /api/v1/orders`
-- `GET /api/v1/orders`
-- `GET /api/v1/orders/:id`
-- `PATCH /api/v1/orders/:id/cancel`
-- `PATCH /api/v1/orders/:id/status`
+- Helmet
+- Rate Limiting
+- Pino Logging
+- Compression
+- Environment Validation
+- Production Hardening
 
-### Payments, Drivers, Deliveries, Notifications
+---
 
-- `POST /api/v1/payments`
-- `GET /api/v1/payments`
-- `GET /api/v1/payments/:id`
-- `PATCH /api/v1/payments/:id/status`
+## 🤖 Version 2
 
-- `GET /api/v1/drivers`
-- `GET /api/v1/drivers/:id`
-- `POST /api/v1/drivers`
-- `PATCH /api/v1/drivers/:id`
-- `DELETE /api/v1/drivers/:id`
+AI Microservices
 
-- `GET /api/v1/deliveries`
-- `GET /api/v1/deliveries/:id`
-- `POST /api/v1/deliveries`
-- `PATCH /api/v1/deliveries/:id`
-- `DELETE /api/v1/deliveries/:id`
+- Demand Forecasting
+- ETA Prediction
+- Route Optimization
+- Recommendation Engine
+- AI Inventory Assistant
+- AI Operations Dashboard
 
-- `GET /api/v1/notifications`
-- `GET /api/v1/notifications/:id`
-- `PATCH /api/v1/notifications/:id/read`
-- `DELETE /api/v1/notifications/:id`
-- `POST /api/v1/notifications`
+Powered by:
 
-## Notes for Developers
+- FastAPI
+- PyTorch
+- Redis Queues
 
-- The backend is organized into routes, controllers, services, models, middlewares, validations, and utils.
-- Authentication is based on JWTs stored in cookies.
-- Most write operations are protected by authentication and role-based authorization.
-- The current codebase is an early-stage backend and still needs hardening for production features such as transactions, inventory reservation, refresh-token rotation, logging, and observability.
+---
 
-## Scripts
+## ⚙ Version 3
 
-- `npm run dev` - start the server with nodemon
-- `npm start` - start the server with Node.js
-- `npm test` - placeholder test command
+Real-Time Commerce Platform
 
-## Security and Operational Notes
+- BullMQ Workers
+- Event-Driven Architecture
+- WebSockets
+- Live Driver Tracking
+- Real-Time Inventory Updates
+- Real-Time Admin Dashboard
 
-- Keep `.env` private and do not commit secrets.
-- Ensure MongoDB credentials and JWT secrets are set before running the app.
-- Review the auth and checkout flows before deploying to production.
+---
+
+# 💡 Why This Project?
+
+Most backend portfolio projects stop at CRUD APIs.
+
+QuickCore focuses on building the engineering foundation behind a production-scale commerce platform by combining scalable backend architecture, caching, testing, containerization, documentation, and a roadmap toward AI-powered operational intelligence.
+
+The long-term vision is to transform QuickCore into an AI-native operations platform where backend services execute business logic while machine learning models and intelligent agents assist with forecasting, optimization, and decision-making.
+
+---
+
+# 📄 License
+
+This project is released under the MIT License.
+
+---
+
+## 👨‍💻 Author
+
+**Devansh Mishra**
+
+If you found this project interesting, feel free to ⭐ the repository and connect with me on LinkedIn.
