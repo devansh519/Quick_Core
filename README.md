@@ -1,4 +1,4 @@
-# 🚀 QuickCore v1
+# QuickCore v1
 
 > **An AI-Native Quick Commerce Operations Platform** inspired by modern commerce systems like Blinkit, Zepto, Instamart, and Amazon Fresh.
 
@@ -8,11 +8,11 @@ Unlike a traditional CRUD application, QuickCore is designed as a scalable backe
 
 ---
 
-# 📌 Project Status
+# Project Status
 
 **Current Version**
 
-> ✅ **v1.0 (MVP)**
+> **v1.0 (MVP)**
 
 Current focus:
 
@@ -32,31 +32,25 @@ Upcoming versions will introduce:
 
 ---
 
-# 🌐 Live Demo
+# Live Demo
 
 ## API
 
-```
-Coming Soon
-```
+https://quickcore-api.onrender.com
 
 ## Swagger Documentation
 
-```
-Coming Soon
-```
+https://quickcore-api.onrender.com/api-docs/
 
 ## Health Check
 
-```
-Coming Soon
-```
+https://quickcore-api.onrender.com/health
 
 ---
 
-# ✨ Key Features
+# Key Features
 
-## 🔐 Authentication & Security
+## Authentication & Security
 
 - JWT Authentication
 - Refresh Token Authentication
@@ -66,7 +60,7 @@ Coming Soon
 
 ---
 
-## 🛒 Commerce Operations
+## Commerce Operations
 
 - Product Management
 - Category Management
@@ -77,7 +71,7 @@ Coming Soon
 
 ---
 
-## 🏬 Warehouse Operations
+## Warehouse Operations
 
 - Warehouse Management
 - Inventory Tracking
@@ -87,7 +81,7 @@ Coming Soon
 
 ---
 
-## ⚡ Performance
+## Performance
 
 - Redis Integration
 - Redis Response Caching
@@ -96,7 +90,7 @@ Coming Soon
 
 ---
 
-## 📦 Infrastructure
+## Infrastructure
 
 - Docker
 - Docker Compose
@@ -107,7 +101,7 @@ Coming Soon
 
 ---
 
-## 🧪 Testing
+## Testing
 
 Production-grade Integration Tests
 
@@ -139,7 +133,7 @@ Production-grade Integration Tests
 
 ---
 
-# 🏗 Architecture
+# Architecture
 
 ```
                 Client
@@ -182,7 +176,7 @@ Future Architecture
 
 ---
 
-# 🛠 Tech Stack
+# Tech Stack
 
 ### Backend
 
@@ -225,7 +219,7 @@ Future Architecture
 
 ---
 
-# 📂 Project Structure
+# Project Structure
 
 ```
 src
@@ -257,7 +251,7 @@ This separation keeps business logic independent from HTTP request handling.
 
 ---
 
-# 📚 API Documentation
+# API Documentation
 
 Once the application is running, interactive API documentation is available at:
 
@@ -294,7 +288,7 @@ npm install
 
 ---
 
-# 🔧 Environment Variables
+# Environment Variables
 
 Create a `.env` file.
 
@@ -318,7 +312,7 @@ JWT_REFRESH_EXPIRY=30d
 
 ---
 
-# ▶ Running the Project
+# Running the Project
 
 Development
 
@@ -340,7 +334,7 @@ docker compose up --build
 
 ---
 
-# 🧪 Running Tests
+# Running Tests
 
 Run all integration tests
 
@@ -356,9 +350,9 @@ Current Status
 
 ---
 
-# 🚀 Roadmap
+# Roadmap
 
-## ✅ Version 1 (Current)
+## Version 1 (Current)
 
 - Express Backend
 - JWT Authentication
@@ -372,7 +366,7 @@ Current Status
 
 ---
 
-## 🚧 Version 1.1
+## Version 1.1
 
 - Helmet
 - Rate Limiting
@@ -383,7 +377,7 @@ Current Status
 
 ---
 
-## 🤖 Version 2
+## Version 2
 
 AI Microservices
 
@@ -402,7 +396,7 @@ Powered by:
 
 ---
 
-## ⚙ Version 3
+## Version 3
 
 Real-Time Commerce Platform
 
@@ -415,7 +409,7 @@ Real-Time Commerce Platform
 
 ---
 
-# 💡 Why This Project?
+# Why This Project?
 
 Most backend portfolio projects stop at CRUD APIs.
 
@@ -425,13 +419,8 @@ The long-term vision is to transform QuickCore into an AI-native operations plat
 
 ---
 
-# 📄 License
 
-This project is released under the MIT License.
-
----
-
-## 👨‍💻 Author
+## Author
 
 **Devansh Mishra**
 
