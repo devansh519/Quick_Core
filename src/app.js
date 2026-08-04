@@ -1,6 +1,7 @@
 const express = require('express');
 const cookieParser = require("cookie-parser");
 const errorHandler = require("./middlewares/error.middleware");
+const setupSwagger = require("./config/swagger");
 
 const authRoutes = require("./routes/auth.routes");
 const categoryRoutes = require("./routes/category.routes");
@@ -34,7 +35,14 @@ app.use("/api/v1/drivers", driverRoutes);
 app.use("/api/v1/deliveries", deliveryRoutes);
 app.use("/api/v1/notifications", notificationRoutes);
 
+app.get("/health", (req, res) => {
+    res.status(200).json({
+        success: true,
+        message: "QuickCore Backend is running",
+    });
+});
 
+setupSwagger(app);
 app.use(errorHandler);
 
 
