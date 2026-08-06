@@ -17,7 +17,7 @@ const options = {
 
         servers: [
             {
-                url: `http://localhost:${process.env.PORT || 3000}/api/v1`,
+                url: 'https://quickcore-api.onrender.com`,
                 description: "Local Development Server",
             },
         ],
