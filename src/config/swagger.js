@@ -15,11 +15,11 @@ const options = {
             },
         },
 
-        servers: [
-            {
-                url: 'https://quickcore-api.onrender.com`,
-                description: "Local Development Server",
-            },
+            servers: [
+        {
+            url: "https://quickcore-api.onrender.com",
+            description: "Production Server",
+        },
         ],
 
         components: {
