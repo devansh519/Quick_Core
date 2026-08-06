@@ -17,7 +17,7 @@ const options = {
 
             servers: [
         {
-            url: "https://quickcore-api.onrender.com",
+            url: "https://quickcore-api.onrender.com/api/v1",
             description: "Production Server",
         },
         ],
